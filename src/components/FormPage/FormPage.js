@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const FormPage = () => {
+const FormPage = (props) => {
     const[orderID, setOrderID] = useState('');
     const[price, setPrice] = useState('');
     const[dish, setDish] = useState('');
@@ -32,12 +32,12 @@ const FormPage = () => {
         }
         const jsonString = JSON.stringify(obj);
         localStorage.setItem(obj.ID, jsonString);
+        props.addUserData(jsonString);
 
         setOrderID('');
         setPrice('');
         setDish('');
         setTableNumber('');
-
     }
 
     return (
